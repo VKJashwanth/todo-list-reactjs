@@ -1,5 +1,5 @@
-import './App.css'
-import {useState} from "react"
+import "./App.css"
+import { useState } from "react"
 
 export default function App() {
   const [todoList, setTodoList] = useState([])
@@ -9,16 +9,16 @@ export default function App() {
   }
   const addTask = () => {
     const task = {
-      id: todoList.length === 0 ? 1 :    todoList[todoList.length - 1].id + 1,
+      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
       taskName: newTask
     }
     setTodoList([...todoList, task])
   }
   const deleteTask = (id) => {
     setTodoList(todoList.filter((task) => {
-      return task.id  !== id
+      return task.id !== id
     }))
-    
+
   }
   return (
     <main>
@@ -28,10 +28,10 @@ export default function App() {
       </div>
       <div className="list">
         {todoList.map((task) => {
-           return <div>
+          return <div>
             <h1>{task.taskName}</h1>
             <button onClick={() => deleteTask(task.id)}>X</button>
-            
+
           </div>
         })}
       </div>
